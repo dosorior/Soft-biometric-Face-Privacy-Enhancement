@@ -180,23 +180,23 @@ with open(fpath_csv_th, 'w', newline='') as f:
             list_gender_target.append('m')
 
 
-    list_numbers = []
+    list_numbers = [1,5,10,50,100,200,400,600]
 
-    list_numbers.append(1)
+    # list_numbers.append(1)
 
-    list_numbers.append(5)
+    # list_numbers.append(5)
 
-    list_numbers.append(10)
+    # list_numbers.append(10)
 
-    list_numbers.append(50)
+    # list_numbers.append(50)
 
-    list_numbers.append(100)
+    # list_numbers.append(100)
 
-    list_numbers.append(200)
+    # list_numbers.append(200)
 
-    list_numbers.append(400)
+    # list_numbers.append(400)
 
-    list_numbers.append(600)
+    # list_numbers.append(600)
 
 
        
