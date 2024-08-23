@@ -103,7 +103,7 @@ If you use this code in your research, please cite the following paper:
 
 #### Data Visualization: Insights from different deep learning models
 
-![Boxplots to analyse the similarity scores](figures/boxplots_similarity_scores.png)
+![Boxplots to analyse the similarity scores](images/boxplots_similarity_scores.png)
 
 - Comparison trials for the same attribute (gender) yield slightly higher similarity scores and more outliers compared to those for different attributes on the unprotected domain using the models [VGGFace2](https://arxiv.org/abs/1710.08092) and [FaceNet](https://arxiv.org/abs/1503.03832). 
 
@@ -113,7 +113,7 @@ If you use this code in your research, please cite the following paper:
 
 - Facial image pairs which produce high similarity scores when comparing their corresponding privacy-enhanced templates have been visually inspected.
 
-![Visualization T-SNE](figures/T-sne.png)
+![Visualization T-SNE](images/T-sne.png)
 
 - Visualization of original (unproteced) and privacy-enhanced (protected) face representations over the [LFW]
 database using t-distributed stochastic neighbour embeddings [t-SNE].
@@ -124,7 +124,7 @@ database using t-distributed stochastic neighbour embeddings [t-SNE].
 
 #### Gender prediction performance of basic machine learning-based classifiers
 
-![Gender prediction](figures/table_gender_perf.png)
+![Gender prediction](images/table_gender_perf.png)
 
 - Gender prediction performance of basic machine learning-based classifiers on orginal (unprotected) and privacy-enhanced (protected) templates in cross-database scenarios (in %).
 
@@ -135,7 +135,7 @@ compared to unprotected templates.
 
 #### Vulnerability analysis
 
-![Attack analysis](figures/tab_attack.png)
+![Attack analysis](images/tab_attack.png)
 
 - Summarises the best average attack success rates across all cross-database scenarios for different values of n with a 95% confidence interval.
 
@@ -144,7 +144,7 @@ compared to unprotected templates.
 
 #### Ranked examples of samples that reach a high similarity score
 
-![Top of ranked images](figures/top_ranked_images.png)
+![Top of ranked images](images/top_ranked_images.png)
 
 
 - Ranked examples of samples that reach a high similarity score in a non-mated comparison of privacy-enhanced
