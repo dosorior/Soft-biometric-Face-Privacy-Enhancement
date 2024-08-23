@@ -13,11 +13,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 def attacks(list_numbers,list_scores):
     
-    list_ave_max = []
-
-    list_log_max = []
-
-    list_linear_max = []
+    list_ave_max,list_log_max,list_linear_max = [],[],[]
 
     for n in list_numbers:
 
@@ -87,9 +83,6 @@ def weight_linear_n(scores_max_list):
         rank+=1
 
         linear_max += (1 - (1/(rank + 1)) * rank) * e   
-        
-        #  (((1/(rank + 1)) * rank) * e)
-
 
     return linear_max
 
@@ -123,27 +116,17 @@ with open(fpath_csv_th, 'w', newline='') as f:
 
     fieldnames = ['NameAttacker', 'gender','max_1','NameTarget','GenderTarget','max_ave_5', 'max_ave_10', 'max_ave_50', 'max_ave_100', 'max_ave_200', 'max_ave_400', 'max_ave_600','log_1','log_5','log_10','log_50','log_100','log_200','log_400','log_600', 'linear_1', 'linear_5','linear_10','linear_50','linear_100','linear_200','linear_400','linear_600']
 
-    # columns = ['identity', 'gender', 'minimum']
-
     writer = csv.DictWriter(f, fieldnames=fieldnames)
 
     writer.writeheader()
     
-    # writer = csv.writer(f)
-
     male_feat_lfw = list(Path(args.testmale).glob('*npy'))
 
     female_feat_lfw = list(Path(args.testfemale).glob('*npy'))
 
     female_feat_celebA = list(Path(args.enrol).glob('*npy'))
 
-    names_test_list = []
-
-    feat_test_list = []
-
-    list_gender = []
-
-    feat_enrol_list = []
+    names_test_list,feat_test_list,list_gender,feat_enrol_list = [],[],[],[]
 
     for feat in male_feat_lfw:
 
@@ -181,24 +164,6 @@ with open(fpath_csv_th, 'w', newline='') as f:
 
 
     list_numbers = [1,5,10,50,100,200,400,600]
-
-    # list_numbers.append(1)
-
-    # list_numbers.append(5)
-
-    # list_numbers.append(10)
-
-    # list_numbers.append(50)
-
-    # list_numbers.append(100)
-
-    # list_numbers.append(200)
-
-    # list_numbers.append(400)
-
-    # list_numbers.append(600)
-
-
        
     for feat_test, gender, name in zip(feat_test_list, list_gender, names_test_list):
 
@@ -213,14 +178,6 @@ with open(fpath_csv_th, 'w', newline='') as f:
             list_scores.append(np.float32(1-(distance.cosine(feat_test,feat_enrol))))
 
             list_names.append(name_t)
-
-            # value_scikyt_reshape = cosine_similarity(feat_test.reshape(1,-1), feat_enrol.reshape(1,-1))[0]
-
-            # value_scipy = float(1 - distance.cosine(feat_test, feat_enrol))
-
-            # value_1 = cosine_similarity((np.asarray(feat_test),np.asarray(feat_enrol)))
-
-            # list_scores.append(np.float32(cosine_similarity(feat_test.reshape(1,-1), feat_enrol.reshape(1,-1))[0]))
 
         list_scores = np.asarray(list_scores)
 
@@ -241,10 +198,6 @@ with open(fpath_csv_th, 'w', newline='') as f:
                 info_mayor = info_actual
 
         list_scores_sort = np.sort(list_scores)[::-1]
-
-        # info_descriptive = describe(list_scores)
-
-        # max_1 = info_descriptive.minmax[1]
 
         list_ave_max, list_log_max, list_linear_max  = attacks(list_numbers,list_scores)
 
